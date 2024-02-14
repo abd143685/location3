@@ -55,12 +55,12 @@ class LocationService {
       final downloadDirectory = await getDownloadsDirectory();
       final filePath = "${downloadDirectory!.path}/track$date.gpx";
 
-      File file = new File(filePath);
-      bool isFirstRun = !file.existsSync();
 
-      if (isFirstRun) {
+      file = new File(filePath);
+      if (!file.existsSync()) {
         file.createSync();
-      } else {
+      }
+      else {
         Gpx existingGpx = GpxReader().fromString(file.readAsStringSync());
         gpx.trks.add(existingGpx.trks[0]);
         track = gpx.trks[0];
