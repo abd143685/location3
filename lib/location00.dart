@@ -69,8 +69,7 @@ class LocationService {
         track.trksegs.add(segment);
       }
 
-      late LocationSettings locationSettings;
-      locationSettings = AndroidSettings(
+      LocationSettings locationSettings = AndroidSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 10,
         forceLocationManager: true,
@@ -270,15 +269,15 @@ class LocationService {
       //WakelockPlus.disable();
       positionStream?.cancel();
 
-      Fluttertoast.showToast(
-          msg: "Total Distance: ${totalDistance.toStringAsFixed(2)} km",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.grey,
-          textColor: Colors.white,
-          fontSize: 16.0
-      );
+      // Fluttertoast.showToast(
+      //     msg: "Total Distance: ${totalDistance.toStringAsFixed(2)} km",
+      //     toastLength: Toast.LENGTH_LONG,
+      //     gravity: ToastGravity.BOTTOM,
+      //     timeInSecForIosWeb: 1,
+      //     backgroundColor: Colors.grey,
+      //     textColor: Colors.white,
+      //     fontSize: 16.0
+      // );
       SharedPreferences pref = await SharedPreferences.getInstance();
       pref.setDouble("TotalDistance", totalDistance);
     } catch (e) {
