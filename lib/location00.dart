@@ -55,8 +55,9 @@ class LocationService {
       final downloadDirectory = await getDownloadsDirectory();
       final filePath = "${downloadDirectory!.path}/track$date.gpx";
 
-
       file = new File(filePath);
+      isFirstRun = !file.existsSync();
+
       if (!file.existsSync()) {
         file.createSync();
       }
