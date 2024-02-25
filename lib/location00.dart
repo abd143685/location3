@@ -250,7 +250,7 @@ class LocationService {
 
   double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
     double distanceInMeters = Geolocator.distanceBetween(lat1, lon1, lat2, lon2);
-    return (distanceInMeters / 1000) * 2; // Multiply the result by 2
+    return (distanceInMeters / 1000); // Multiply the result by 2
   }
 
   Future<void> deleteDocument() async {
